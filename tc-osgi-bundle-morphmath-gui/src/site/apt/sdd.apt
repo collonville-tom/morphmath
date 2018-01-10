@@ -1,0 +1,33 @@
+MorphMath-gui Specification
+
+* General
+
+** @req SDD_BUNDLE_MORPHPATH_GUI_010
+
+  Le bundle fourni un JFileChooser pour selectionner le fichier a transformer
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_GUI_010
+        
+** @req SDD_BUNDLE_MORPHPATH_GUI_020
+
+  Le bundle utilise une liste deroulante pour selectionner la fonction a appliquer
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_GUI_020
+        
+** @req SDD_BUNDLE_MORPHPATH_GUI_030
+
+  Le bundle fourni un JFileChooser pour generer le fichier de sortie
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_GUI_030
+
+** @req SDD_BUNDLE_MORPHPATH_GUI_040
+
+  Le bundle utilise une Panel pour presenter le fichier d'entrée et le fichier de sortie
+  
+        * @version 0.0.1

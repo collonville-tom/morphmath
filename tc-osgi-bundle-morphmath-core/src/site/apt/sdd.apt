@@ -1,0 +1,32 @@
+MorphMath-core Specification
+
+* General
+
+** @req SDD_BUNDLE_MORPHMATH_CORE_005
+
+  Le bundle utilise les services offerts par utils pour manipuler les fichiers des ressources et logger
+  
+        * @version 0.1.0
+        
+        * @depend SDD_BUNDLE_MORPHMATH_CORE_050
+
+* Basic
+
+** @req SDD_BUNDLE_MORPHMATH_CORE_010
+
+  Le bundle fourni un pattern commande basic pour l'application de operation de dilatation et d'erosion
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHMATH_CORE_010, SRS_BUNDLE_MORPHMATH_CORE_015
+
+* Complexe
+  
+** @req SDD_BUNDLE_MORPHMATH_CORE_020
+
+  Le bundle fourni un pattern commande complexe etendant le pattern basic pour l'application de operation de fermeture de gradient et d'ouverture
+  
+        * @version 0.0.2
+        
+        * @track SRS_BUNDLE_MORPHMATH_CORE_020, SRS_BUNDLE_MORPHMATH_CORE_030, SRS_BUNDLE_MORPHMATH_CORE_040
+  

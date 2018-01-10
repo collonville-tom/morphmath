@@ -1,0 +1,33 @@
+Morphmath Software Design Description
+
+=====================
+
+[model/morphmathComponent.jpg] Fonctions principales
+
+* General
+
+** @req SDD_BUNDLE_MORPHPATH_010
+
+  Le projet fourni un composant pour executer des transformations graphique de type morphologie mathematique
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_CORE_010
+        
+** @req SDD_BUNDLE_MORPHPATH_015
+
+  Le projet fourni une interface graphique pour selectionner les fichers sur lesquels appliquer les transformations
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_CORE_015
+        
+        * @depend SDD_BUNDLE_MORPHPATH_015
+        
+** @req SDD_BUNDLE_MORPHPATH_020
+
+  Les composants du projet sont capable de gerer des log et des fichiers de conf via le composant utils
+  
+        * @version 0.0.1
+        
+        * @depend SDD_BUNDLE_UTILS_030, SDD_BUNDLE_UTILS_040

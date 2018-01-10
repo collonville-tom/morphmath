@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_YXTLkBppEeSBpavu8DPN6w" name="NewModel">
+  <packagedElement xmi:type="uml:Package" xmi:id="_npsXkBppEeSBpavu8DPN6w" name="usecase">
+    <ownedComment xmi:id="_3Jl0EBppEeSBpavu8DPN6w" annotatedElement="_npsXkBppEeSBpavu8DPN6w _wYDO0BppEeSBpavu8DPN6w">
+      <body>SRS_BUNDLE_MORPHPATH_010
+SRS_BUNDLE_MORPHPATH_015</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_v_SJgBppEeSBpavu8DPN6w" name="Actor1"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1NEdABppEeSBpavu8DPN6w" memberEnd="_1NEdARppEeSBpavu8DPN6w _1NEdAhppEeSBpavu8DPN6w">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:id="_1NEdARppEeSBpavu8DPN6w" type="_v_SJgBppEeSBpavu8DPN6w" association="_1NEdABppEeSBpavu8DPN6w"/>
+      <ownedEnd xmi:id="_1NEdAhppEeSBpavu8DPN6w" type="_wYDO0BppEeSBpavu8DPN6w" association="_1NEdABppEeSBpavu8DPN6w"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_qOQmEBppEeSBpavu8DPN6w" name="component">
+    <ownedComment xmi:id="_8jliIBpqEeSBpavu8DPN6w" annotatedElement="_qOQmEBppEeSBpavu8DPN6w _iH0N8BpqEeSBpavu8DPN6w">
+      <body>SDD_BUNDLE_MORPHPATH_010</body>
+    </ownedComment>
+    <ownedComment xmi:id="_92AMQBpqEeSBpavu8DPN6w" annotatedElement="_qOQmEBppEeSBpavu8DPN6w _iWQSkBpqEeSBpavu8DPN6w">
+      <body>SDD_BUNDLE_MORPHPATH_015</body>
+    </ownedComment>
+    <ownedComment xmi:id="_-UcbwBpqEeSBpavu8DPN6w" annotatedElement="_qOQmEBppEeSBpavu8DPN6w _jCyocBpqEeSBpavu8DPN6w">
+      <body>SDD_BUNDLE_MORPHPATH_020</body>
+    </ownedComment>
+    <packagedElement xmi:type="uml:Component" xmi:id="_iH0N8BpqEeSBpavu8DPN6w" name="tc-osgi-bundle-morphmath-core">
+      <interfaceRealization xmi:id="_3WVaIBpqEeSBpavu8DPN6w" name="tc-osgi-bundle-morphmath-coreToIMorphMathCoreService" client="_iH0N8BpqEeSBpavu8DPN6w" supplier="_vP3pUBpqEeSBpavu8DPN6w" contract="_vP3pUBpqEeSBpavu8DPN6w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_iWQSkBpqEeSBpavu8DPN6w" name="tc-osgi-bundle-morphmath-gui"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_jCyocBpqEeSBpavu8DPN6w" name="IUtilsService"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_sNBjYBpqEeSBpavu8DPN6w" name="IUtilsServiceTotc-osgi-bundle-morphmath-gui" client="_iWQSkBpqEeSBpavu8DPN6w" supplier="_jCyocBpqEeSBpavu8DPN6w"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_st6p8BpqEeSBpavu8DPN6w" name="IUtilsServiceTotc-osgi-bundle-morphmath-core" client="_iH0N8BpqEeSBpavu8DPN6w" supplier="_jCyocBpqEeSBpavu8DPN6w"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_vP3pUBpqEeSBpavu8DPN6w" name="IMorphMathCoreService"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_4K0yIBpqEeSBpavu8DPN6w" name="IMorphMathCoreServiceTotc-osgi-bundle-morphmath-gui" client="_iWQSkBpqEeSBpavu8DPN6w" supplier="_vP3pUBpqEeSBpavu8DPN6w"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_wYDO0BppEeSBpavu8DPN6w" name="Effectuer de la morphologie mathematique sur des images"/>
+</uml:Model>

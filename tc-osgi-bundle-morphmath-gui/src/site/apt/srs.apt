@@ -1,0 +1,20 @@
+MorphMath-gui Specification 
+
+* General
+
+** @req SRS_BUNDLE_MORPHPATH_GUI_010
+
+  Le bundle permet de choisir le fichier sur lequel appliquer une fonction morphologique
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_015
+        
+** @req SRS_BUNDLE_MORPHPATH_GUI_020
+
+  Le bundle permet de choisir le type de fonction a appliquer
+  
+        * @version 0.0.1
+        
+        * @track SRS_BUNDLE_MORPHPATH_015
+        

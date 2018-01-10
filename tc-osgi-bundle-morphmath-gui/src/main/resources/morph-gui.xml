@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConfigurationLibrary
+	xmlns="http://collonville.thomas.fr/tc-osgi-bundle-utils/config-file-schema">
+	<configFiles>
+		<defaultValue>MorphMath</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>app_title</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.gui.pane.MainFrame</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>tc-osgi-bundle-morphmath-core</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>morphMathCoreDependencyBundleName</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.gui.module.tracker.MorphMathCoreServiceTracker</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>tc-osgi-bundle-gui-utils</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>guiUtilsDependencyBundleName</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.gui.module.tracker.GuiUtilsServiceTracker</className>
+	</configFiles>
+</ConfigurationLibrary>
+
+

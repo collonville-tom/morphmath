@@ -1,0 +1,25 @@
+MorphMath Software Requirements Specification
+
+=====================
+
+[model/morphmathUC.jpg] Fonctions principales
+
+* General
+
+** @req SRS_BUNDLE_MORPHPATH_010
+
+  Le projet fourni un composant pour executer des transformations graphique de type morphologie mathematique
+  
+        * @version 0.0.1
+        
+        * @track SRS_TC_030
+        
+** @req SRS_BUNDLE_MORPHPATH_015
+
+  Le projet fourni une interface ihm
+  
+        * @version 0.0.1
+        
+        * @track SRS_TC_030
+        
+        * @depend SRS_BUNDLE_MORPHPATH_010

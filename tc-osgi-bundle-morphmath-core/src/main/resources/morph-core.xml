@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConfigurationLibrary
+	xmlns="http://collonville.thomas.fr/tc-osgi-bundle-utils/config-file-schema">
+	<configFiles>
+		<defaultValue>0</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>ellipse_x</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>0</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>ellipse_y</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>3</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>ellipse_w</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>3</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>ellipse_h</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile</className>
+	</configFiles>
+	<configFiles>
+		<defaultValue>AbstractBasicFunction of</defaultValue>
+		<valueType>java.lang.String</valueType>
+		<fieldName>defaultNewNameBase</fieldName>
+		<className>org.tc.osgi.bundle.morphmath.core.AbstractMorphologiqueFunction</className>
+	</configFiles>
+</ConfigurationLibrary>
+
+
