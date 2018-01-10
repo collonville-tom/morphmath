@@ -33,11 +33,11 @@
         </dependency>
     </dependencies>
 
-  <parent>
-    <groupId>org.tc.parent</groupId>
-    <artifactId>tc-parent</artifactId>
-    <version>0.7.0-SNAPSHOT</version>
-  </parent>
+	<parent>
+		<groupId>org.tc.parent</groupId>
+    	<artifactId>tc-osgi-parent</artifactId>
+		<version>0.7.0-SNAPSHOT</version>
+	</parent>
 
 	<build>
 		<plugins>

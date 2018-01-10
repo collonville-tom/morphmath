@@ -21,7 +21,6 @@
         <dependency>
             <groupId>org.tc.osgi.bundle.utils</groupId>
             <artifactId>tc-osgi-bundle-utils</artifactId>
-            <type>bundle</type>
             <classifier>assembly</classifier>
             <version>${utils.version}${snapshot}</version>
             <scope>compile</scope>
@@ -36,7 +35,6 @@
     <dependency>
             <groupId>org.tc.osgi.bundle.gui-utils</groupId>
             <artifactId>tc-osgi-bundle-gui-utils</artifactId>
-            <type>bundle</type>
             <classifier>assembly</classifier>
             <version>${gui-utils.version}${snapshot}</version>
             <scope>compile</scope>
@@ -52,7 +50,6 @@
 			<groupId>org.tc.osgi.bundle.morphmath</groupId>
 			<artifactId>tc-osgi-bundle-morphmath-core</artifactId>
 			<classifier>assembly</classifier>
-			<type>bundle</type>
 			<version>${morphmath-core.version}${snapshot}</version>
 			<scope>compile</scope>
 		</dependency>
@@ -77,11 +74,11 @@
 	</dependencies>
 
 
-  <parent>
-    <groupId>org.tc.parent</groupId>
-    <artifactId>tc-parent</artifactId>
-    <version>0.7.0-SNAPSHOT</version>
-  </parent>
+	<parent>
+		<groupId>org.tc.parent</groupId>
+    	<artifactId>tc-osgi-parent</artifactId>
+		<version>0.7.0-SNAPSHOT</version>
+	</parent>
 
 	<build>
 		<plugins>
