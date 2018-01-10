@@ -2,15 +2,9 @@ Backlog
 
 * attentes
 
-		* Mettre a jour documentation SRS
-		
-		* Mettre a jour documentation SDD
-		
-		* Mettre a jour documentation STP
-		
-		* Mettre a jour documentation index
-		
-		* 0.1.5 faire une interface cli necessite server ssh en dependance d'un bundle integrant un server ssh 
+		* 0.2.0 faire une interface cli necessite server ssh en dependance d'un bundle integrant un server ssh 
+
+		* 0.2.0 faire le passage aux interfaces utils et maj version
 		
 * acceptes
 
