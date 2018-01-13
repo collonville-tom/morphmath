@@ -5,6 +5,8 @@ Backlog
 		* 0.2.0 faire une interface cli necessite server ssh en dependance d'un bundle integrant un server ssh 
 
 		* 0.2.0 faire le passage aux interfaces utils et maj version
+
+		* 0.2.0 ajouter un package install
 		
 * acceptes
 
