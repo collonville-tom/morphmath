@@ -1,95 +1,86 @@
 package org.tc.osgi.bundle.morphmath.core.module.activator;
 
-import org.osgi.framework.BundleActivator;
+
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceRegistration;
-import org.tc.osgi.bundle.morphmath.core.module.factory.MorphMathCoreServiceFactory;
 import org.tc.osgi.bundle.morphmath.core.module.service.IMorphMathCoreService;
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.morphmath.core.module.tracker.UtilsServiceTracker;
-import org.tc.osgi.bundle.utils.logger.LoggerGestionnary;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
+
+import org.tc.osgi.bundle.morphmath.core.module.service.impl.MorphMathCoreServiceImpl;
+
+import org.tc.osgi.bundle.utils.interf.module.exception.TcOsgiException;
+import org.tc.osgi.bundle.utils.interf.module.service.ILoggerUtilsService;
+import org.tc.osgi.bundle.utils.interf.module.service.IPropertyUtilsService;
+import org.tc.osgi.bundle.utils.interf.module.utils.AbstractTcOsgiActivator;
+import org.tc.osgi.bundle.utils.interf.module.utils.TcOsgiProxy;
+
 
 /**
  * Activator.java.
  * @author Collonville Thomas
  * @version 0.0.1
  */
-public class MorphMathCoreActivator implements BundleActivator {
+public class MorphMathCoreActivator extends AbstractTcOsgiActivator {
 
-    /**
-     * ServiceRegistration helloServiceRegistration.
-     */
-    private ServiceRegistration morphMathServiceRegistration;
+	private TcOsgiProxy<ILoggerUtilsService> iLoggerUtilsService;
+	private TcOsgiProxy<IPropertyUtilsService> iPropertyUtilsService;
 
-    /**
-     * AptServiceTracker aptServiceTracker.
-     */
-    private UtilsServiceTracker utilsServiceTracker;
+	@Override
+	protected void checkInitBundleUtilsService(BundleContext context) throws TcOsgiException {
+		throw new TcOsgiException("checkInitBundleUtilsService not implemented");
+		
+	}
 
-    /**
-     * activeMorphMathService.
-     * @param context BundleContext
-     */
-    private void activeMorphMathService(final BundleContext context) {
-        final MorphMathCoreServiceFactory factory = new MorphMathCoreServiceFactory();
-        morphMathServiceRegistration = context.registerService(IMorphMathCoreService.class.getName(), factory, null);
-        UtilsServiceProxy.getInstance().getLogger(MorphMathCoreActivator.class).debug("MorphMathCoreService start");
-    }
+	@Override
+	protected void initProxys(BundleContext context) throws TcOsgiException {
+		this.iPropertyUtilsService = new TcOsgiProxy<IPropertyUtilsService>(context, IPropertyUtilsService.class);
+		PropertyServiceProxy.getInstance().setService(this.iPropertyUtilsService.getInstance());
+		this.iLoggerUtilsService = new TcOsgiProxy<ILoggerUtilsService>(context, ILoggerUtilsService.class);
+		LoggerServiceProxy.getInstance().setService(this.iLoggerUtilsService.getInstance());
+		
+	}
 
-    /**
-     * activeTracker.
-     * @throws BundleException
-     * @throws InvalidSyntaxException
-     */
-    private void activeUtilsServiceTracker(final BundleContext context) throws InvalidSyntaxException, BundleException {
-        utilsServiceTracker = new UtilsServiceTracker(context);
-        utilsServiceTracker.open();
-        UtilsServiceProxy.getInstance().setService(utilsServiceTracker.getUtilsService());
-        UtilsServiceProxy.getInstance().getLogger(MorphMathCoreActivator.class).debug("Start of utils service tracking");
+	@Override
+	protected void initServices(BundleContext context) throws TcOsgiException {
+		this.getIBundleUtilsService().getInstance().registerService(IMorphMathCoreService.class, new MorphMathCoreServiceImpl(), context, this);
+		
+	}
 
-    }
+	@Override
+	protected void detachProxys(BundleContext context) throws TcOsgiException {
+		this.iLoggerUtilsService.close();
+		this.iPropertyUtilsService.close();
+		
+	}
 
-    /**
-     * @param context BundleContext
-     * @throws Exception
-     * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void start(final BundleContext context) throws Exception {
-        activeUtilsServiceTracker(context);
-        activeMorphMathService(context);
+	@Override
+	protected void detachServices(BundleContext context) throws TcOsgiException {
+		this.getIBundleUtilsService().getInstance().unregister(IMorphMathCoreService.class, this);
+		
+	}
 
-    }
+	@Override
+	protected void beforeStart(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
-    /**
-     * @param context BundleContext
-     * @throws Exception
-     * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void stop(final BundleContext context) throws Exception {
-        stopUtilsServiceTracker();
-        stopMorphMathService();
+	@Override
+	protected void beforeStop(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
-    }
+	@Override
+	protected void afterStart(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
-    /**
-     * stopMorphMathService.
-     */
-    private void stopMorphMathService() {
-        morphMathServiceRegistration.unregister();
-        UtilsServiceProxy.getInstance().getLogger(MorphMathCoreActivator.class).debug("MorphMathCoreService stop");
-    }
-
-    /**
-     * stopTracker.
-     *
-     */
-    private void stopUtilsServiceTracker() {
-        LoggerGestionnary.getInstance(MorphMathCoreActivator.class).debug("Stop of utils service tracking");
-        utilsServiceTracker.close();
-    }
+	@Override
+	protected void afterStop(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

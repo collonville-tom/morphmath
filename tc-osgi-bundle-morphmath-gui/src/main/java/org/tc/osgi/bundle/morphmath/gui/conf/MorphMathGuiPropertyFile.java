@@ -1,6 +1,6 @@
 package org.tc.osgi.bundle.morphmath.gui.conf;
 
-import org.tc.osgi.bundle.utils.conf.AbstractPropertyFile;
+import org.tc.osgi.bundle.utils.interf.conf.AbstractPropertyFile;
 
 /**
  * MorphMathGuiPropertyFile.java.

@@ -5,7 +5,8 @@ import java.io.IOException;
 
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
 import org.tc.osgi.bundle.morphmath.core.module.service.IMorphMathCoreService;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
+
 
 /**
  * MorphMathCoreServiceProxy.java.

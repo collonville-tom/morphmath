@@ -13,16 +13,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import org.osgi.framework.BundleContext;
-import org.tc.osgi.bundle.gui.utils.pane.ImagePane;
+
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
 import org.tc.osgi.bundle.morphmath.gui.conf.MorphMathGuiPropertyFile;
 import org.tc.osgi.bundle.morphmath.gui.module.activator.MorphMathGuiActivator;
 import org.tc.osgi.bundle.morphmath.gui.module.service.GuiUtilsServiceProxy;
 import org.tc.osgi.bundle.morphmath.gui.module.service.MorphMathCoreServiceProxy;
-import org.tc.osgi.bundle.morphmath.gui.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.module.exception.TcOsgiException;
+
 
 /**
  * MainFrame.java.
@@ -50,12 +54,15 @@ public class MainFrame extends JFrame {
     /**
      * MainFrame constructor.
      * @param context BundleContext
-     * @throws FieldTrackingAssignementException
+     * @throws TcOsgiException 
      */
-    public MainFrame(final BundleContext context) throws FieldTrackingAssignementException {
-        UtilsServiceProxy.getInstance().getLogger(MainFrame.class).debug("Construction du mainframe");
+    public MainFrame(final BundleContext context) throws TcOsgiException {
+        LoggerServiceProxy.getInstance().getLogger(MainFrame.class).debug("Construction du mainframe");
         setTitle(getAppTitle());
-        addWindowListener(GuiUtilsServiceProxy.getInstance().getBundleClosingWindowsAdapter(context, MorphMathGuiActivator.AUTO_BUNDLE_NAME));
+        if(context!=null)
+        {
+        	addWindowListener(GuiUtilsServiceProxy.getInstance().getBundleClosingWindowsAdapter(context, MorphMathGuiActivator.AUTO_BUNDLE_NAME));
+        }
         buildComponent();
         pack();
         setVisible(true);
@@ -92,7 +99,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 final String comboResult = combo.getSelectedItem().toString();
-                UtilsServiceProxy.getInstance().getLogger(MainFrame.class).debug(comboResult);
+                LoggerServiceProxy.getInstance().getLogger(MainFrame.class).debug(comboResult);
 
                 final JFileChooser chooser = new JFileChooser();
                 chooser.setToolTipText(combo.getSelectedItem().toString());
@@ -101,12 +108,12 @@ public class MainFrame extends JFrame {
                 final int returnVal = chooser.showOpenDialog(chooser);
                 final File file = chooser.getSelectedFile();
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("File selected by jfilechooser");
-                    UtilsServiceProxy.getInstance().getLogger(MainFrame.class).debug(file.getAbsolutePath());
+                	LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("File selected by jfilechooser");
+                	LoggerServiceProxy.getInstance().getLogger(MainFrame.class).debug(file.getAbsolutePath());
                     File output = null;
                     try {
                         final JDialog dial = new JDialog();
-                        final ImagePane panel = new ImagePane(ImageIO.read(file));
+                        final JPanel panel = GuiUtilsServiceProxy.getInstance().getImagePane(ImageIO.read(output));
                         dial.getContentPane().add(panel);
                         dial.setVisible(true);
                         dial.pack();
@@ -132,9 +139,9 @@ public class MainFrame extends JFrame {
                         if (output != null) {
 
                             final JDialog dialout = new JDialog();
-                            UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("Output file generated");
-                            UtilsServiceProxy.getInstance().getLogger(MainFrame.class).debug(output.getAbsolutePath());
-                            final ImagePane panelout = new ImagePane(ImageIO.read(output));
+                            LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("Output file generated");
+                            LoggerServiceProxy.getInstance().getLogger(MainFrame.class).debug(output.getAbsolutePath());
+                            final JPanel panelout = GuiUtilsServiceProxy.getInstance().getImagePane(ImageIO.read(output));
                             // TODO utiliser les service gui-utils
                             dialout.getContentPane().add(panelout);
                             dialout.setVisible(true);
@@ -142,7 +149,7 @@ public class MainFrame extends JFrame {
 
                         }
                     } catch (IOException | MorphologiqueException e1) {
-                        UtilsServiceProxy.getInstance().getLogger(MainFrame.class).error(e1.getMessage(), e1);
+                    	LoggerServiceProxy.getInstance().getLogger(MainFrame.class).error(e1.getMessage(), e1);
                         final JDialog d = new JDialog(MainFrame.this, MorphMathGuiPropertyFile.getInstance().getError());
                         d.add(new JLabel(e1.getMessage()));
                         // TODO utiliser les service gui-utils
@@ -150,7 +157,7 @@ public class MainFrame extends JFrame {
                         d.pack();
 
                     } catch (final FieldTrackingAssignementException e1) {
-                        UtilsServiceProxy.getInstance().getLogger(MainFrame.class).error(e1.getMessage(), e1);
+                    	LoggerServiceProxy.getInstance().getLogger(MainFrame.class).error(e1.getMessage(), e1);
                         final JDialog d = new JDialog(MainFrame.this, MorphMathGuiPropertyFile.getInstance().getError());
                         d.add(new JLabel(e1.getMessage()));
                         // TODO utiliser les service gui-utils
@@ -160,7 +167,7 @@ public class MainFrame extends JFrame {
 
                 }
                 if (returnVal == JFileChooser.CANCEL_OPTION) {
-                    UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("Cancel action jfilechooser");
+                	LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("Cancel action jfilechooser");
                 }
             }
         });
@@ -175,7 +182,7 @@ public class MainFrame extends JFrame {
      */
     public String getAppTitle() throws FieldTrackingAssignementException {
         if (app_title == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(MorphMathGuiPropertyFile.getInstance().getXMLFile()).fieldTraking(this, "app_title");
+            PropertyServiceProxy.getInstance().getXMLPropertyFile(MorphMathGuiPropertyFile.getInstance().getXMLFile()).fieldTraking(this, "app_title");
         }
         return app_title;
     }

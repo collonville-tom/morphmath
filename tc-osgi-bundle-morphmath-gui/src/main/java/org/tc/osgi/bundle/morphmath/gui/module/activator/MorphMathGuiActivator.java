@@ -1,160 +1,109 @@
 package org.tc.osgi.bundle.morphmath.gui.module.activator;
 
-import org.osgi.framework.BundleActivator;
+
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.osgi.framework.InvalidSyntaxException;
-import org.tc.osgi.bundle.morphmath.gui.conf.MorphMathGuiPropertyFile;
-import org.tc.osgi.bundle.morphmath.gui.module.service.GuiUtilsServiceProxy;
+
+import org.tc.osgi.bundle.morphmath.core.module.service.IMorphMathCoreService;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
 import org.tc.osgi.bundle.morphmath.gui.module.service.MorphMathCoreServiceProxy;
-import org.tc.osgi.bundle.morphmath.gui.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.morphmath.gui.module.tracker.GuiUtilsServiceTracker;
-import org.tc.osgi.bundle.morphmath.gui.module.tracker.MorphMathCoreServiceTracker;
-import org.tc.osgi.bundle.morphmath.gui.module.tracker.UtilsServiceTracker;
 import org.tc.osgi.bundle.morphmath.gui.pane.MainFrame;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
-import org.tc.osgi.bundle.utils.logger.LoggerGestionnary;
+
+import org.tc.osgi.bundle.utils.interf.module.exception.TcOsgiException;
+import org.tc.osgi.bundle.utils.interf.module.service.ILoggerUtilsService;
+import org.tc.osgi.bundle.utils.interf.module.service.IPropertyUtilsService;
+import org.tc.osgi.bundle.utils.interf.module.utils.AbstractTcOsgiActivator;
+import org.tc.osgi.bundle.utils.interf.module.utils.TcOsgiProxy;
+
 
 /**
  * Activator.java.
  * @author Collonville Thomas
  * @version 0.0.1
  */
-public class MorphMathGuiActivator implements BundleActivator {
+public class MorphMathGuiActivator extends AbstractTcOsgiActivator {
 
+	private TcOsgiProxy<ILoggerUtilsService> iLoggerUtilsService;
+	private TcOsgiProxy<IPropertyUtilsService> iPropertyUtilsService;
+	private TcOsgiProxy<IMorphMathCoreService> iMorphMathCoreService;
     /**
      * String AUTO_BUNDLE_NAME.
      */
     public static final String AUTO_BUNDLE_NAME = "tc-osgi-bundle-morphmath-gui";
 
-    /**
-     * String guiUtilsDependencyBundleName.
-     */
-    private String guiUtilsDependencyBundleName;
 
-    /**
-     * GuiUtilsServiceTracker guiUtilsServiceTracker.
-     */
-    private GuiUtilsServiceTracker guiUtilsServiceTracker;
+ 
 
     /**
      * MainFrame mainApp.
      */
     private MainFrame mainApp;
 
-    /**
-     * MorphMathCoreServiceTracker morphMathCoreServiceTracker.
-     */
-    private MorphMathCoreServiceTracker morphMathCoreServiceTracker;
 
-    /**
-     * AptServiceTracker aptServiceTracker.
-     */
-    private UtilsServiceTracker utilsServiceTracker;
 
-    /**
-     * activeGuiUtilsServiceTracker.
-     * @param context
-     * @throws InvalidSyntaxException
-     * @throws BundleException
-     */
-    private void activeGuiUtilsServiceTracker(final BundleContext context) throws InvalidSyntaxException, BundleException {
-        guiUtilsServiceTracker = new GuiUtilsServiceTracker(context);
-        guiUtilsServiceTracker.open();
-        GuiUtilsServiceProxy.getInstance().setService(guiUtilsServiceTracker.getIGuiUtilsService());
-        UtilsServiceProxy.getInstance().getLogger(MorphMathGuiActivator.class).debug("Start of gui-utils service tracking");
+ 
 
-    }
+	@Override
+	protected void checkInitBundleUtilsService(BundleContext context) throws TcOsgiException {
+		throw new TcOsgiException("checkInitBundleUtilsService not implemented");
+		
+	}
 
-    /**
-     * activeMorphMathCoreServiceTracker.
-     * @param context
-     */
-    private void activeMorphMathCoreServiceTracker(final BundleContext context) {
-        morphMathCoreServiceTracker = new MorphMathCoreServiceTracker(context);
-        morphMathCoreServiceTracker.open();
-        MorphMathCoreServiceProxy.getInstance().setService(morphMathCoreServiceTracker.getMorphMathCoreService());
-        UtilsServiceProxy.getInstance().getLogger(MorphMathGuiActivator.class).debug("Start of morphmath-core service tracking");
+	@Override
+	protected void initProxys(BundleContext context) throws TcOsgiException {
+		this.iPropertyUtilsService = new TcOsgiProxy<IPropertyUtilsService>(context, IPropertyUtilsService.class);
+		PropertyServiceProxy.getInstance().setService(this.iPropertyUtilsService.getInstance());
+		this.iLoggerUtilsService = new TcOsgiProxy<ILoggerUtilsService>(context, ILoggerUtilsService.class);
+		LoggerServiceProxy.getInstance().setService(this.iLoggerUtilsService.getInstance());
+		this.iMorphMathCoreService = new TcOsgiProxy<IMorphMathCoreService>(context, IMorphMathCoreService.class);
+		MorphMathCoreServiceProxy.getInstance().setService(this.iMorphMathCoreService.getInstance());
+		
+	}
 
-    }
+	@Override
+	protected void initServices(BundleContext context) throws TcOsgiException {
+		// No services
+		
+	}
 
-    /**
-     * activeTracker.
-     */
-    private void activeUtilsServiceTracker(final BundleContext context) {
-        utilsServiceTracker = new UtilsServiceTracker(context);
-        utilsServiceTracker.open();
-        UtilsServiceProxy.getInstance().setService(utilsServiceTracker.getUtilsService());
-        UtilsServiceProxy.getInstance().getLogger(MorphMathGuiActivator.class).debug("Start of utils service tracking");
+	@Override
+	protected void detachProxys(BundleContext context) throws TcOsgiException {
+		this.iLoggerUtilsService.close();
+		this.iPropertyUtilsService.close();
+		this.iMorphMathCoreService.close();
+		
+	}
 
-    }
+	@Override
+	protected void detachServices(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
-    /**
-     * getGuiUtilsDependencyBundleName.
-     * @return String
-     * @throws FieldTrackingAssignementException
-     */
-    private String getGuiUtilsDependencyBundleName() throws FieldTrackingAssignementException {
-        if (guiUtilsDependencyBundleName == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(MorphMathGuiPropertyFile.getInstance().getXMLFile()).fieldTraking(this, "guiUtilsDependencyBundleName");
-        }
+	@Override
+	protected void beforeStart(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 
-        return guiUtilsDependencyBundleName;
-    }
-
-    /**
-     * @param context BundleContext
-     * @throws Exception
-     * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void start(final BundleContext context) throws Exception {
-        activeUtilsServiceTracker(context);
-        activeMorphMathCoreServiceTracker(context);
-        activeGuiUtilsServiceTracker(context);
-        mainApp = new MainFrame(context);
-        mainApp.setVisible(true);
-    }
-
-    /**
-     * @param context BundleContext
-     * @throws Exception
-     * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void stop(final BundleContext context) throws Exception {
-        stopGuiUtilsServiceTracker();
-        stopMorphMathCoreServiceTracker();
-        stopUtilsServiceTracker();
-        mainApp.setVisible(false);
+	@Override
+	protected void beforeStop(BundleContext context) throws TcOsgiException {
+		mainApp.setVisible(false);
         mainApp = null;
+		
+	}
 
-    }
+	@Override
+	protected void afterStart(BundleContext context) throws TcOsgiException {
+		mainApp = new MainFrame(context);
+        mainApp.setVisible(true);
+		
+	}
 
-    /**
-     * stopGuiUtilsServiceTracker.
-     */
-    private void stopGuiUtilsServiceTracker() {
-        UtilsServiceProxy.getInstance().getLogger(MorphMathGuiActivator.class).debug("Stop of gui-utils service tracking");
-        guiUtilsServiceTracker.close();
-    }
-
-    /**
-     * stopTracker.
-     *
-     */
-    private void stopMorphMathCoreServiceTracker() {
-        LoggerGestionnary.getInstance(MorphMathGuiActivator.class).debug("Stop of morphmath-core service tracking");
-        morphMathCoreServiceTracker.close();
-
-    }
-
-    /**
-     * stopTracker.
-     *
-     */
-    private void stopUtilsServiceTracker() {
-        UtilsServiceProxy.getInstance().getLogger(MorphMathGuiActivator.class).debug("Stop of utils service tracking");
-        utilsServiceTracker.close();
-    }
+	@Override
+	protected void afterStop(BundleContext context) throws TcOsgiException {
+		// TODO Auto-generated method stub
+		
+	}
 }
+

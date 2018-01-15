@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
+
 
 /**
  * IMorphMathCoreService.java.

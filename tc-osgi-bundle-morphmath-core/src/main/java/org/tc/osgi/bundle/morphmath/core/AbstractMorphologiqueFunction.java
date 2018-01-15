@@ -8,8 +8,10 @@ import java.util.StringTokenizer;
 
 import org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile;
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
+
 
 /**
  * AbstractMorphologiqueFunction.java.
@@ -104,7 +106,7 @@ public abstract class AbstractMorphologiqueFunction {
      */
     public String getDefaultNewNameBase() throws FieldTrackingAssignementException {
         if (defaultNewNameBase == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(MorphMathCorePropertyFile.MORPH_CORE_FILE).fieldTraking(this, "defaultNewNameBase");
+            PropertyServiceProxy.getInstance().getXMLPropertyFile(MorphMathCorePropertyFile.MORPH_CORE_FILE).fieldTraking(this, "defaultNewNameBase");
         }
         return defaultNewNameBase;
     }

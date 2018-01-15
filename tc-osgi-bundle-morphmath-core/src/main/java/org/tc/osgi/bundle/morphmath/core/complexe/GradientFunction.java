@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
 
 /**
  * GradientFunction.java.

@@ -5,9 +5,14 @@ import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.utils.module.service.impl.UtilsServiceImpl;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
+import org.tc.osgi.bundle.utils.module.service.impl.LoggerUtilsServiceImpl;
+import org.tc.osgi.bundle.utils.module.service.impl.PropertyUtilsServiceImpl;
+
+
 
 /**
  * DilatationFunctionTest.java.
@@ -23,7 +28,8 @@ public class DilatationFunctionTest {
      */
     @Test
     public void testDilatationString() {
-        UtilsServiceProxy.getInstance().setService(new UtilsServiceImpl());
+    	LoggerServiceProxy.getInstance().setService(new LoggerUtilsServiceImpl());
+    	PropertyServiceProxy.getInstance().setService(new PropertyUtilsServiceImpl());
         final DilatationFunction dil = new DilatationFunction();
         try {
             dil.dilatation("src/test/resources/docvierge.bmp", "dilatation of docvierge", "bmp", new Ellipse2D.Double(0, 0, 5, 5));

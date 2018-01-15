@@ -1,8 +1,9 @@
 package org.tc.osgi.bundle.morphmath.core.conf;
 
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
-import org.tc.osgi.bundle.utils.conf.AbstractPropertyFile;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.morphmath.core.module.service.PropertyServiceProxy;
+
+import org.tc.osgi.bundle.utils.interf.conf.AbstractPropertyFile;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
 
 /**
  * DefaultConfig.java.
@@ -85,7 +86,7 @@ public class MorphMathCorePropertyFile extends AbstractPropertyFile {
      */
     public Integer getEllipseH() throws FieldTrackingAssignementException {
         if (ellipse_h == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_h");
+            PropertyServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_h");
         }
         return Integer.valueOf(ellipse_h);
     }
@@ -97,7 +98,7 @@ public class MorphMathCorePropertyFile extends AbstractPropertyFile {
      */
     public Integer getEllipseW() throws FieldTrackingAssignementException {
         if (ellipse_w == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_w");
+        	PropertyServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_w");
         }
         return Integer.valueOf(ellipse_w);
     }
@@ -109,7 +110,7 @@ public class MorphMathCorePropertyFile extends AbstractPropertyFile {
      */
     public Integer getEllipseX() throws FieldTrackingAssignementException {
         if (ellipse_x == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_x");
+        	PropertyServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_x");
         }
         return Integer.valueOf(ellipse_x);
     }
@@ -121,7 +122,7 @@ public class MorphMathCorePropertyFile extends AbstractPropertyFile {
      */
     public Integer getEllipseY() throws FieldTrackingAssignementException {
         if (ellipse_y == null) {
-            UtilsServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_y");
+        	PropertyServiceProxy.getInstance().getXMLPropertyFile(getXMLFile()).fieldTraking(this, "ellipse_y");
         }
         return Integer.valueOf(ellipse_y);
     }

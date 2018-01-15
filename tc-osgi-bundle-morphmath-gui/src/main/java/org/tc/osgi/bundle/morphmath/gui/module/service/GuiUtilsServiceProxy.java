@@ -1,16 +1,16 @@
 package org.tc.osgi.bundle.morphmath.gui.module.service;
 
 import java.awt.Image;
-import java.awt.event.WindowListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.WindowAdapter;
 
 import javax.swing.JDialog;
 import javax.swing.JMenuItem;
-
+import javax.swing.JPanel;
 import org.osgi.framework.BundleContext;
-import org.tc.osgi.bundle.gui.utils.adapter.BasicMouseAdapter;
-import org.tc.osgi.bundle.gui.utils.location.DialogLocationControl;
-import org.tc.osgi.bundle.gui.utils.module.service.IGuiUtilsService;
-import org.tc.osgi.bundle.gui.utils.pane.ImagePane;
+import org.tc.osgi.bundle.gui.utils.interf.location.IDialogLocationControl;
+import org.tc.osgi.bundle.gui.utils.interf.module.service.IGuiUtilsService;
+import org.tc.osgi.bundle.utils.interf.module.exception.TcOsgiException;
 
 /**
  * GuiUtilsServiceProxy.java.
@@ -53,12 +53,12 @@ public class GuiUtilsServiceProxy implements IGuiUtilsService {
      * @see org.tc.osgi.bundle.gui.utils.module.service.IGuiUtilsService#getBasicMouseAdapter(javax.swing.JMenuItem)
      */
     @Override
-    public BasicMouseAdapter getBasicMouseAdapter(final JMenuItem menu) {
+    public MouseAdapter getBasicMouseAdapter(final JMenuItem menu) {
         return service.getBasicMouseAdapter(menu);
     }
 
     @Override
-    public WindowListener getBundleClosingWindowsAdapter(final BundleContext context, final String autoBundleName) {
+    public WindowAdapter getBundleClosingWindowsAdapter(final BundleContext context, final String autoBundleName) throws TcOsgiException {
         return service.getBundleClosingWindowsAdapter(context, autoBundleName);
     }
 
@@ -68,7 +68,7 @@ public class GuiUtilsServiceProxy implements IGuiUtilsService {
      * @see org.tc.osgi.bundle.gui.utils.module.service.IGuiUtilsService#getImagePane(java.awt.Image)
      */
     @Override
-    public ImagePane getImagePane(final Image image) {
+    public JPanel getImagePane(final Image image) {
         return service.getImagePane(image);
     }
 
@@ -78,7 +78,7 @@ public class GuiUtilsServiceProxy implements IGuiUtilsService {
      * @see org.tc.osgi.bundle.gui.utils.module.service.IGuiUtilsService#getLocationControl(javax.swing.JDialog)
      */
     @Override
-    public DialogLocationControl getLocationControl(final JDialog dialog) {
+    public IDialogLocationControl getLocationControl(final JDialog dialog) {
         return service.getLocationControl(dialog);
     }
 

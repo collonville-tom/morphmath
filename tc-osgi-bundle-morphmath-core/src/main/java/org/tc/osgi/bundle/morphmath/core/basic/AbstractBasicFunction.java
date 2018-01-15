@@ -14,7 +14,8 @@ import org.tc.osgi.bundle.morphmath.core.AbstractMorphologiqueFunction;
 import org.tc.osgi.bundle.morphmath.core.exception.FileTypeException;
 import org.tc.osgi.bundle.morphmath.core.exception.ImageTypeException;
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+
 
 /**
  * AbstractBasicFunction.java.
@@ -41,7 +42,7 @@ public abstract class AbstractBasicFunction extends AbstractMorphologiqueFunctio
      * @throws MorphologiqueException
      */
     protected void imageCheking(final String inputFileName, final String outputFileName, final String outputExtention, final Shape shape) throws IOException, MorphologiqueException {
-        UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("Verification de l'image " + inputFileName);
+    	LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("Verification de l'image " + inputFileName);
         final File inputFile = new File(inputFileName);
         final BufferedImage inputImage = ImageIO.read(inputFile);
         if (inputImage == null) {
@@ -63,7 +64,7 @@ public abstract class AbstractBasicFunction extends AbstractMorphologiqueFunctio
      */
     private void iterationOnImage(final BufferedImage inputImage, final BufferedImage outputImage, final Shape shape) {
         final Area area = new Area(shape);
-        UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("Iteration en cours");
+        LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("Iteration en cours");
         final AffineTransform centrage = new AffineTransform();
         centrage.setToTranslation(-(area.getBounds().getCenterX()), -area.getBounds().getCenterY());
         final AffineTransform translation = new AffineTransform();
@@ -85,7 +86,7 @@ public abstract class AbstractBasicFunction extends AbstractMorphologiqueFunctio
             area.transform(retourLigne);
         }
         outputImage.setData(raster);
-        UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("fin de traitement");
+        LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("fin de traitement");
     }
 
     /**

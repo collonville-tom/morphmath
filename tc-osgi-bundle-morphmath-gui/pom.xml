@@ -11,8 +11,10 @@
 	<properties>
 		<build>0.1.5</build>
         <utils.version>0.3.0</utils.version>
+        <utils.interfaces.version>0.1.0</utils.interfaces.version>
         <equinox-loader.version>0.2.0</equinox-loader.version>
-        <gui-utils.version>0.1.6</gui-utils.version>
+        <gui-utils.version>0.2.0</gui-utils.version>
+        <gui-utils.interfaces.version>0.1.0</gui-utils.interfaces.version>
         <morphmath-core.version>0.1.5</morphmath-core.version>
         <snapshot>-SNAPSHOT</snapshot>
 	</properties>
@@ -20,9 +22,9 @@
 <dependencies>
         <dependency>
             <groupId>org.tc.osgi.bundle.utils</groupId>
-            <artifactId>tc-osgi-bundle-utils</artifactId>
+            <artifactId>tc-osgi-bundle-utils-interfaces</artifactId>
             <classifier>assembly</classifier>
-            <version>${utils.version}${snapshot}</version>
+            <version>${utils.interfaces.version}${snapshot}</version>
             <scope>compile</scope>
         </dependency>
         <!-- Test for eclipse -->
@@ -34,9 +36,9 @@
         </dependency>
     <dependency>
             <groupId>org.tc.osgi.bundle.gui-utils</groupId>
-            <artifactId>tc-osgi-bundle-gui-utils</artifactId>
+            <artifactId>tc-osgi-bundle-gui-utils-interfaces</artifactId>
             <classifier>assembly</classifier>
-            <version>${gui-utils.version}${snapshot}</version>
+            <version>${gui-utils.interfaces.version}${snapshot}</version>
             <scope>compile</scope>
         </dependency>
 <!--        Test for eclipse -->

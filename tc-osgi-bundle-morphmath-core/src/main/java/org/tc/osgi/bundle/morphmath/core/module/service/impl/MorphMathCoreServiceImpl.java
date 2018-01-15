@@ -11,7 +11,8 @@ import org.tc.osgi.bundle.morphmath.core.complexe.GradientFunction;
 import org.tc.osgi.bundle.morphmath.core.complexe.OpenFunction;
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
 import org.tc.osgi.bundle.morphmath.core.module.service.IMorphMathCoreService;
-import org.tc.osgi.bundle.utils.exception.FieldTrackingAssignementException;
+import org.tc.osgi.bundle.utils.interf.conf.exception.FieldTrackingAssignementException;
+
 
 /**
  * MorphMathCoreServiceImpl.java.

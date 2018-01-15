@@ -6,7 +6,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import org.tc.osgi.bundle.morphmath.core.exception.MorphologiqueException;
-import org.tc.osgi.bundle.morphmath.core.module.service.UtilsServiceProxy;
+import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
+
 
 /**
  * ErosionFunction.java.
@@ -45,7 +46,7 @@ public class ErosionFunction extends AbstractBasicFunction {
 
     @Override
     protected void execute(final String inputFileName, final String outputFileName, final String outputExtention, final Shape shape) throws IOException, MorphologiqueException {
-        UtilsServiceProxy.getInstance().getLogger(this.getClass()).debug("erosion");
+    	LoggerServiceProxy.getInstance().getLogger(this.getClass()).debug("erosion");
         imageCheking(inputFileName, outputFileName, outputExtention, shape);
 
     }
