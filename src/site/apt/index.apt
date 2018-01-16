@@ -1,3 +1,3 @@
 Introduction
   
-  Le projet morphmath a pour but de fournir les fonctionnalités de traitement d'image de la morphologie mathematique.MorphMath est une application java 7 standard implementant des algorithmes de morphologie mathematique. L'application est hebergée dans le conteneur d'application equinox loader et fourni une ihm de type swing.
+  Le projet morphmath a pour but de fournir les fonctionnalités de traitement d'image de la morphologie mathematique.MorphMath est une application java  standard implementant des algorithmes de morphologie mathematique. L'application est hebergée dans le conteneur d'application equinox loader et fourni une ihm de type swing.
