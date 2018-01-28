@@ -7,9 +7,14 @@ addons:
     organization: "collonville-tom-github"
     token:
       secure: "748b7fca9a6fbfe5072f997a232f5c4e0ca0e6ca"
+  apt:
+    packages:
+      - xvfb
 
 before_install : true
-install : true
+install:
+  - export DISPLAY=':0.0'
+  - Xvfb :0 -screen 0 1024x768x24 > /dev/null 2>&1 &
 before_script : true
 
 script: 
@@ -21,3 +26,8 @@ cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'
+
+
+addons:
+
+
