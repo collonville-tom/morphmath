@@ -22,10 +22,6 @@ import org.tc.osgi.bundle.utils.module.service.impl.PropertyUtilsServiceImpl;
 
 public class MainFrameTest extends FestSwingJUnitTestCase {
 
-	static {
-
-        System.setProperty("java.awt.headless", "true");
-	}
 	
 	/**
 	 * createNewEditor.
