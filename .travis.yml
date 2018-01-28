@@ -3,13 +3,13 @@ language: java
 jdk: oraclejdk8
 
 addons:
+  apt:
+    packages:
+      - xvfb
   sonarcloud:
     organization: "collonville-tom-github"
     token:
       secure: "748b7fca9a6fbfe5072f997a232f5c4e0ca0e6ca"
-  apt:
-    packages:
-      - xvfb
 
 before_install : true
 install:
