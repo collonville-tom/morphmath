@@ -24,7 +24,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 	static {
 
-        System.setProperty("java.awt.headless", "false");
+        System.setProperty("java.awt.headless", "true");
 	}
 	
 	/**
