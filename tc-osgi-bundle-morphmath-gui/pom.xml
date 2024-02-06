@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.tc.osgi.bundle.morphmath</groupId>
@@ -9,45 +10,45 @@
 	<version>${build}${snapshot}</version>
 
 	<properties>
-		<build>0.1.5</build>
-        <utils.version>0.3.0</utils.version>
-        <utils.interfaces.version>0.1.0</utils.interfaces.version>
-        <equinox-loader.version>0.2.0</equinox-loader.version>
-        <gui-utils.version>0.2.0</gui-utils.version>
-        <gui-utils.interfaces.version>0.1.0</gui-utils.interfaces.version>
-        <morphmath-core.version>0.1.5</morphmath-core.version>
-        <snapshot>-SNAPSHOT</snapshot>
+		<build>0.11.0</build>
+		<utils.version>0.11.0</utils.version>
+		<utils.interfaces.version>0.11.0</utils.interfaces.version>
+		<equinox-loader.version>0.11.0</equinox-loader.version>
+		<gui-utils.version>0.11.0</gui-utils.version>
+		<gui-utils.interfaces.version>0.11.0</gui-utils.interfaces.version>
+		<morphmath-core.version>0.11.0</morphmath-core.version>
+		<snapshot>-SNAPSHOT</snapshot>
 	</properties>
-	
-<dependencies>
-        <dependency>
-            <groupId>org.tc.osgi.bundle.utils</groupId>
-            <artifactId>tc-osgi-bundle-utils-interfaces</artifactId>
-            <classifier>assembly</classifier>
-            <version>${utils.interfaces.version}${snapshot}</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Test for eclipse -->
-        <dependency>
-            <groupId>org.tc.osgi.bundle.utils</groupId>
-            <artifactId>tc-osgi-bundle-utils</artifactId>
-            <version>${utils.version}${snapshot}</version>
-            <scope>test</scope>
-        </dependency>
-    <dependency>
-            <groupId>org.tc.osgi.bundle.gui-utils</groupId>
-            <artifactId>tc-osgi-bundle-gui-utils-interfaces</artifactId>
-            <classifier>assembly</classifier>
-            <version>${gui-utils.interfaces.version}${snapshot}</version>
-            <scope>compile</scope>
-        </dependency>
-<!--        Test for eclipse -->
-        <dependency>
-            <groupId>org.tc.osgi.bundle.gui-utils</groupId>
-            <artifactId>tc-osgi-bundle-gui-utils</artifactId>
-            <version>${gui-utils.version}${snapshot}</version>
-            <scope>test</scope>
-        </dependency>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.tc.osgi.bundle.utils</groupId>
+			<artifactId>tc-osgi-bundle-utils-interfaces</artifactId>
+			<classifier>assembly</classifier>
+			<version>${utils.interfaces.version}${snapshot}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Test for eclipse -->
+		<dependency>
+			<groupId>org.tc.osgi.bundle.utils</groupId>
+			<artifactId>tc-osgi-bundle-utils</artifactId>
+			<version>${utils.version}${snapshot}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.tc.osgi.bundle.gui-utils</groupId>
+			<artifactId>tc-osgi-bundle-gui-utils-interfaces</artifactId>
+			<classifier>assembly</classifier>
+			<version>${gui-utils.interfaces.version}${snapshot}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!--        Test for eclipse -->
+		<dependency>
+			<groupId>org.tc.osgi.bundle.gui-utils</groupId>
+			<artifactId>tc-osgi-bundle-gui-utils</artifactId>
+			<version>${gui-utils.version}${snapshot}</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.tc.osgi.bundle.morphmath</groupId>
 			<artifactId>tc-osgi-bundle-morphmath-core</artifactId>
@@ -79,15 +80,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
+			<artifactId>mockito-core</artifactId>
 		</dependency>
 	</dependencies>
 
 
 	<parent>
 		<groupId>org.tc.parent</groupId>
-    	<artifactId>tc-osgi-parent</artifactId>
-		<version>0.7.0</version>
+		<artifactId>tc-osgi-parent</artifactId>
+		<version>0.11.0-SNAPSHOT</version>
 	</parent>
 
 	<build>
@@ -97,7 +98,8 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<archive>
-						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+						<manifestFile>
+							${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
 					</archive>
 				</configuration>
 			</plugin>

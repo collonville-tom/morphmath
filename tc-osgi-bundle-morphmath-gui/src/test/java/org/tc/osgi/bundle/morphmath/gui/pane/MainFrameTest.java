@@ -7,22 +7,19 @@ import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.fixture.FrameFixture;
 import org.fest.swing.junit.testcase.FestSwingJUnitTestCase;
-import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.osgi.framework.BundleContext;
 import org.tc.osgi.bundle.gui.utils.module.service.impl.GuiUtilsServiceImpl;
 import org.tc.osgi.bundle.morphmath.core.module.service.LoggerServiceProxy;
-
 import org.tc.osgi.bundle.morphmath.core.module.service.impl.MorphMathCoreServiceImpl;
 import org.tc.osgi.bundle.morphmath.gui.module.service.GuiUtilsServiceProxy;
-import org.tc.osgi.bundle.utils.interf.module.exception.TcOsgiException;
+import org.tc.osgi.bundle.utils.interf.exception.TcOsgiException;
 import org.tc.osgi.bundle.utils.module.service.impl.LoggerUtilsServiceImpl;
 import org.tc.osgi.bundle.utils.module.service.impl.PropertyUtilsServiceImpl;
 
 public class MainFrameTest extends FestSwingJUnitTestCase {
 
-	
 	/**
 	 * createNewEditor.
 	 * 
@@ -46,7 +43,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			}
 		};
 		return GuiActionRunner.execute(query);
-		
+
 	}
 
 	/**
@@ -75,8 +72,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			BundleContext context = Mockito.mock(BundleContext.class);
 
-			org.tc.osgi.bundle.morphmath.gui.module.service.MorphMathCoreServiceProxy.getInstance()
-					.setService(new MorphMathCoreServiceImpl());
+			org.tc.osgi.bundle.morphmath.gui.module.service.MorphMathCoreServiceProxy.getInstance().setService(new MorphMathCoreServiceImpl());
 
 			editor = new FrameFixture(robot(), MainFrameTest.createNewEditor(context));
 			editor.show();
@@ -96,8 +92,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			editor.menuItem("GO").click();
 			System.out.println(new File(".").getAbsolutePath());
-			editor.fileChooser().fileNameTextBox().setText(
-					"X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
+			editor.fileChooser().fileNameTextBox().setText("X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
 			editor.fileChooser().approve();
 
 			Thread.sleep(500);
@@ -106,8 +101,6 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 
 	}
 
@@ -119,8 +112,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			editor.menuItem("GO").click();
 
-			editor.fileChooser().fileNameTextBox().setText(
-					"X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
+			editor.fileChooser().fileNameTextBox().setText("X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
 			editor.fileChooser().approve();
 
 			Thread.sleep(500);
@@ -129,8 +121,6 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 
 	}
 
@@ -142,8 +132,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			editor.menuItem("GO").click();
 
-			editor.fileChooser().fileNameTextBox().setText(
-					"X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
+			editor.fileChooser().fileNameTextBox().setText("X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
 			editor.fileChooser().approve();
 
 			Thread.sleep(500);
@@ -152,8 +141,6 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 
 	}
 
@@ -165,8 +152,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			editor.menuItem("GO").click();
 
-			editor.fileChooser().fileNameTextBox().setText(
-					"X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
+			editor.fileChooser().fileNameTextBox().setText("X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
 			editor.fileChooser().approve();
 
 			Thread.sleep(500);
@@ -175,8 +161,6 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 
 	}
 
@@ -191,8 +175,7 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 
 			editor.menuItem("GO").click();
 
-			editor.fileChooser().fileNameTextBox().setText(
-					"X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
+			editor.fileChooser().fileNameTextBox().setText("X:/repo_java/tc-osgi-parent/tc-osgi-morphmath/tc-osgi-bundle-morphmath-gui/src/test/resources/docvierge.bmp");
 			editor.fileChooser().approve();
 
 			Thread.sleep(500);
@@ -201,8 +184,6 @@ public class MainFrameTest extends FestSwingJUnitTestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 
 	}
 

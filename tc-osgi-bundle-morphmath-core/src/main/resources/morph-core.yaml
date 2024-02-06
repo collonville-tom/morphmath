@@ -1,0 +1,22 @@
+config:
+   -  value: 0
+      type: java.lang.String
+      field: ellipse_x
+      className: org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile
+   -  value: 0
+      type: java.lang.String
+      field: ellipse_y
+      className: org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile
+   -  value: 3
+      type: java.lang.String
+      field: ellipse_w
+      className: org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile
+   -  value: 3
+      type: java.lang.String
+      field: ellipse_h
+      className: org.tc.osgi.bundle.morphmath.core.conf.MorphMathCorePropertyFile
+   -  value: AbstractBasicFunction of
+      type: java.lang.String
+      field: defaultNewNameBase
+      className: org.tc.osgi.bundle.morphmath.core.AbstractMorphologiqueFunction
+

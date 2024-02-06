@@ -1,0 +1,14 @@
+config:
+   -  value: MorphMath
+      type: java.lang.String
+      field: app_title
+      className: org.tc.osgi.bundle.morphmath.gui.pane.MainFrame
+   -  value: tc-osgi-bundle-morphmath-core
+      type: java.lang.String
+      field: morphMathCoreDependencyBundleName
+      className: org.tc.osgi.bundle.morphmath.gui.module.tracker.MorphMathCoreServiceTracker
+   -  value: tc-osgi-bundle-gui-utils
+      type: java.lang.String
+      field: guiUtilsDependencyBundleName
+      className: org.tc.osgi.bundle.morphmath.gui.module.tracker.GuiUtilsServiceTracker
+      
